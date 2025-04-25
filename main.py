@@ -1,5 +1,4 @@
 from fastapi import FastAPI, HTTPException
-from gamelist import database as db 
 from gamelist.database import (
     add_game,
     get_all_games,
@@ -9,7 +8,7 @@ from gamelist.database import (
 from gamelist.schemas import GameCreate
 from gamelist.models import Game
 
-app = FastAPI(debug=True)
+app = FastAPI()
 
 @app.post("/games", response_model=Game)
 def create_game(game: GameCreate):
